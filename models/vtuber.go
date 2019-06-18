@@ -13,7 +13,7 @@ type VtuberEntity struct {
 	ChineseName      string        "bson:\"chineseName\""
 	YoutubeChannelId string        "bson:\"youtubeChannelId\""
 	TwitterProfileId string        "bson:\"twitterProfileId\""
-	BiliUid          int64         "bson:\"bilibiliUid\""
+	BiliUid          uint64        "bson:\"bilibiliUid\""
 	GroupName        string        "bson:\"groupName\""
 	NickNames        []string      "bson:\"nickNameList\""
 }
@@ -50,7 +50,5 @@ func SearchVtuber(keyword string) (*VtuberEntity, error) {
 			return &vtuber, nil
 		}
 	}
-	return nil, errors.New("Vtuber not found.")
+	return nil, errors.New("vtuber not found.")
 }
-
-

@@ -14,6 +14,7 @@ type YoutubeController struct {
 
 // @router /live/:id/history
 func (yc *YoutubeController) GetYoutubeLiveHistory() {
+	defer yc.ServeJSON()
 	type LiveDetailResult struct {
 		Id        string
 		Title     string
@@ -29,14 +30,12 @@ func (yc *YoutubeController) GetYoutubeLiveHistory() {
 	if err != nil || vtuberInfo.YoutubeChannelId == "" {
 		errorTemplate.Message = "Vtuber not found."
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	lives, e := models.GetLiveHistoryByChannelId(vtuberInfo.YoutubeChannelId)
 	if e != nil {
 		errorTemplate.Message = e.Error()
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	var result []LiveDetailResult
@@ -52,11 +51,11 @@ func (yc *YoutubeController) GetYoutubeLiveHistory() {
 		Success bool
 		Lives   []LiveDetailResult
 	}{true, result}
-	yc.ServeJSON()
 }
 
 // @router /live/:id/details
 func (yc *YoutubeController) GetYoutubeLiveDetail() {
+	defer yc.ServeJSON()
 	type LiveDetailResult struct {
 		Id             string
 		Title          string
@@ -78,7 +77,6 @@ func (yc *YoutubeController) GetYoutubeLiveDetail() {
 	if detailErr != nil || chatErr != nil {
 		errorTemplate.Message = "cannot get live detail."
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	result := LiveDetailResult{
@@ -105,11 +103,11 @@ func (yc *YoutubeController) GetYoutubeLiveDetail() {
 		Success bool
 		Detail  LiveDetailResult
 	}{true, result}
-	yc.ServeJSON()
 }
 
 // @router /live/:id/details/viewers
 func (yc *YoutubeController) GetYoutubeLiveViewersDetail() {
+	defer yc.ServeJSON()
 	errorTemplate := &struct {
 		Success bool
 		Message string
@@ -119,7 +117,6 @@ func (yc *YoutubeController) GetYoutubeLiveViewersDetail() {
 	if chatErr != nil || detailErr != nil {
 		errorTemplate.Message = "cannot get live chats info."
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	// 统计观众曲线
@@ -168,11 +165,11 @@ func (yc *YoutubeController) GetYoutubeLiveViewersDetail() {
 		ViewersTrend []interface{}
 		FirstRate    float32
 	}{true, viewersTrend, firstRate * 100}
-	yc.ServeJSON()
 }
 
 // @router /live/:id/chats
 func (yc *YoutubeController) GetYoutubeLiveChats() {
+	defer yc.ServeJSON()
 	type LiveChatDetail struct {
 		AuthorChannelId string
 		Message         string
@@ -186,7 +183,6 @@ func (yc *YoutubeController) GetYoutubeLiveChats() {
 	if chatErr != nil {
 		errorTemplate.Message = "cannot get live chats."
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	var commonChats []LiveChatDetail
@@ -203,19 +199,18 @@ func (yc *YoutubeController) GetYoutubeLiveChats() {
 	if parseErr != nil || offset > len(commonChats) {
 		errorTemplate.Message = "offset error."
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	yc.Data["json"] = &struct {
-		Success     bool
-		HasMoreItem bool
-		LiveChats   []LiveChatDetail
+		Success      bool
+		HasMoreItems bool
+		LiveChats    []LiveChatDetail
 	}{true, offset+200 < len(commonChats), commonChats[offset:int(math.Min(float64(offset+200), float64(len(commonChats)-1)))]}
-	yc.ServeJSON()
 }
 
 // @router /live/:id/superchats
 func (yc *YoutubeController) GetYoutubeSuperchats() {
+	defer yc.ServeJSON()
 	type SuperchatDetail struct {
 		AuthorChannelId string
 		Message         string
@@ -236,7 +231,6 @@ func (yc *YoutubeController) GetYoutubeSuperchats() {
 	if chatErr != nil {
 		errorTemplate.Message = "cannot get live chats."
 		yc.Data["json"] = errorTemplate
-		yc.ServeJSON()
 		return
 	}
 	var superchats []SuperchatDetail
@@ -258,5 +252,4 @@ func (yc *YoutubeController) GetYoutubeSuperchats() {
 		Success    bool
 		Superchats []SuperchatDetail
 	}{true, superchats}
-	yc.ServeJSON()
 }

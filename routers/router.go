@@ -23,7 +23,12 @@ func init() {
 		beego.NSNamespace("/youtube",
 			beego.NSInclude(
 				&controllers.YoutubeController{},
-				),
+			),
+		),
+		beego.NSNamespace("/bilibili",
+			beego.NSInclude(
+				&controllers.BilibiliController{},
+			),
 		),
 	)
 	beego.AddNamespace(ns)

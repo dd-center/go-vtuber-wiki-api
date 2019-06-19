@@ -1,7 +1,7 @@
 # go-vtuber-wiki-api
 vtuber wiki 后端 ，开发中。
 
-##已实现
+## 已实现
 - /vtuber/list
 - /vtuber/search
 - /youtube/live/:id/history
@@ -12,3 +12,4 @@ vtuber wiki 后端 ，开发中。
 - /bilibili/live/:id/history
 - /bilibili/live/:id/comments
 - /bilibili/live/:id/gifts
+- /bilibili/:id/danmaku

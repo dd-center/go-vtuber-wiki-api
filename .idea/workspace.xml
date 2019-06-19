@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f40538d4-dfc2-4b81-9d5b-8ddf675f5cba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/bilibili.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/bilibili.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/18448.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/18448.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/bilibili.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/bilibili.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/vtuber.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/vtuber.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/youtube.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/youtube.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vtuber.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/vtuber.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bilibili.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/bilibili.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/commentsRouter_controllers.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/commentsRouter_controllers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
     </list>
@@ -22,53 +21,19 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/controllers/youtube.go">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="374">
-                    <caret line="255" lean-forward="true" selection-start-line="255" selection-end-line="255" />
-                    <folding>
-                      <element signature="n#!!block;n#GetYoutubeLiveHistory#0" />
-                      <element signature="n#!!block;n#GetYoutubeLiveDetail#0" />
-                      <element signature="n#!!block;n#GetYoutubeLiveViewersDetail#0" />
-                      <element signature="n#!!block;n#GetYoutubeLiveChats#0" />
-                      <element signature="n#!!block;n#GetYoutubeSuperchats#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.go">
+        <entry file="file://$PROJECT_DIR$/controllers/youtube.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="493">
+              <caret line="181" selection-start-line="181" selection-end-line="181" selection-end-column="40" />
               <folding>
-                <element signature="e#14#85#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routers/router.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="e#301#374#0" expanded="true" />
+                <element signature="n#!!block;n#GetYoutubeLiveHistory#0" />
+                <element signature="n#!!block;n#GetYoutubeLiveDetail#0" />
+                <element signature="n#!!block;n#GetYoutubeLiveViewersDetail#0" />
+                <element signature="n#!!block;n#GetYoutubeLiveChats#0" />
+                <element signature="n#!!block;n#GetYoutubeSuperchats#0" />
               </folding>
             </state>
           </provider>
@@ -77,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/vtuber.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="504">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -93,10 +58,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/tools.go">
+        <entry file="file://$PROJECT_DIR$/routers/router.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+            <state relative-caret-position="323">
+              <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+              <folding>
+                <element signature="e#301#374#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,11 +87,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/bilibili.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1581">
-              <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+            <state relative-caret-position="476">
+              <caret line="120" column="38" lean-forward="true" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
               <folding>
-                <element signature="e#21#70#0" expanded="true" />
+                <element signature="n#!!block;n#GetBilibiliLiveHistory#0" />
+                <element signature="n#!!block;n#GetBilibiliLiveCommentById#0" />
+                <element signature="n#!!block;n#GetBilibiliLiveGiftById#0" />
+                <element signature="n#!!block;n#GetBilibiliLiveCommentByTime#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routers/commentsRouter_controllers.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-213">
+              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -132,8 +112,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="153">
-                <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <first_editor relative-caret-position="119">
+                <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
               </first_editor>
               <second_editor />
             </state>
@@ -143,13 +123,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/bilibili.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="612">
+              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
                 <element signature="e#16#58#0" expanded="true" />
-                <element signature="n#!!block;n#GetBiliLiveHistoryById#0" />
+                <element signature="n#!!block;n#GetBiliLiveHistoryByUid#0" />
                 <element signature="n#!!block;n#GetBiliLiveDetailById#0" />
-                <element signature="n#!!block;n#GetBiliLiveCommentsById#0" />
+                <element signature="n#!!block;n#GetBiliLiveCommentsByTime#0" />
+                <element signature="n#!!block;n#FilterChats#0" />
+                <element signature="n#!!block;n#FilterBiliGifts#0" />
               </folding>
             </state>
           </provider>
@@ -158,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/vtuber.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="459">
+              <caret line="30" selection-start-line="30" selection-end-line="32" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -186,10 +168,10 @@
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/models/tools.go" />
         <option value="$PROJECT_DIR$/models/youtube.go" />
-        <option value="$PROJECT_DIR$/routers/router.go" />
-        <option value="$PROJECT_DIR$/controllers/vtuber.go" />
         <option value="$PROJECT_DIR$/models/vtuber.go" />
         <option value="$PROJECT_DIR$/models/bilibili.go" />
+        <option value="$PROJECT_DIR$/controllers/vtuber.go" />
+        <option value="$PROJECT_DIR$/routers/router.go" />
         <option value="$PROJECT_DIR$/controllers/youtube.go" />
         <option value="$PROJECT_DIR$/controllers/bilibili.go" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -197,17 +179,16 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="355" />
-    <option name="y" value="767" />
-    <option name="width" value="1931" />
-    <option name="height" value="1045" />
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,11 +224,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -302,12 +285,21 @@
       <updated>1560765814709</updated>
       <workItem from="1560765815949" duration="7923000" />
       <workItem from="1560774836959" duration="24700000" />
-      <workItem from="1560811796296" duration="11364000" />
+      <workItem from="1560811796296" duration="15889000" />
+      <workItem from="1560913170505" duration="6461000" />
     </task>
+    <task id="LOCAL-00001" summary="更新接口">
+      <created>1560845391754</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560845391754</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43987000" />
+    <option name="totallyTimeSpent" value="54973000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,7 +314,7 @@
     <frame x="-8" y="32" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13235295" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13354531" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -354,6 +346,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="更新接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新接口" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/models/object.go" />
@@ -399,27 +395,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile" />
     <entry file="file://$PROJECT_DIR$/routers/commentsRouter__________go_src_go-vtuber-wiki-api_controllers.go" />
-    <entry file="file://$PROJECT_DIR$/routers/commentsRouter_controllers.go">
+    <entry file="file://$PROJECT_DIR$/../github.com/astaxie/beego/controller.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        <state relative-caret-position="1343">
+          <caret line="117" column="36" lean-forward="true" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routers/router.go">
+    <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="187">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#301#374#0" expanded="true" />
+            <element signature="e#14#85#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/app.conf">
+    <entry file="file://$PROJECT_DIR$/models/tools.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        <state relative-caret-position="663">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/strconv/atoi.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="201" column="5" selection-start-line="201" selection-start-column="5" selection-end-line="201" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../gopkg.in/mgo.v2/session.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6212">
+          <caret line="2773" column="16" selection-start-line="2773" selection-start-column="16" selection-end-line="2773" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/vtuber.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -436,51 +453,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/tools.go">
+    <entry file="file://$PROJECT_DIR$/routers/commentsRouter_controllers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        <state relative-caret-position="-213">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/vtuber.go">
+    <entry file="file://$PROJECT_DIR$/conf/app.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/vtuber.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../gopkg.in/mgo.v2/session.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="2776" column="16" lean-forward="true" selection-start-line="2776" selection-start-column="16" selection-end-line="2776" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/bilibili.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#16#58#0" expanded="true" />
-            <element signature="n#!!block;n#GetBiliLiveHistoryById#0" />
-            <element signature="n#!!block;n#GetBiliLiveDetailById#0" />
-            <element signature="n#!!block;n#GetBiliLiveCommentsById#0" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/youtube.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="255" lean-forward="true" selection-start-line="255" selection-end-line="255" />
+        <state relative-caret-position="493">
+          <caret line="181" selection-start-line="181" selection-end-line="181" selection-end-column="40" />
           <folding>
             <element signature="n#!!block;n#GetYoutubeLiveHistory#0" />
             <element signature="n#!!block;n#GetYoutubeLiveDetail#0" />
@@ -491,22 +481,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/bilibili.go">
+    <entry file="file://$PROJECT_DIR$/models/bilibili.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+        <state relative-caret-position="612">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
           <folding>
-            <element signature="e#21#70#0" expanded="true" />
+            <element signature="e#16#58#0" expanded="true" />
+            <element signature="n#!!block;n#GetBiliLiveHistoryByUid#0" />
+            <element signature="n#!!block;n#GetBiliLiveDetailById#0" />
+            <element signature="n#!!block;n#GetBiliLiveCommentsByTime#0" />
+            <element signature="n#!!block;n#FilterChats#0" />
+            <element signature="n#!!block;n#FilterBiliGifts#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/routers/router.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="323">
+          <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
           <folding>
-            <element signature="e#14#85#0" expanded="true" />
+            <element signature="e#301#374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/vtuber.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" selection-start-line="30" selection-end-line="32" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/bilibili.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="120" column="38" lean-forward="true" selection-start-line="120" selection-start-column="38" selection-end-line="120" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!block;n#GetBilibiliLiveHistory#0" />
+            <element signature="n#!!block;n#GetBilibiliLiveCommentById#0" />
+            <element signature="n#!!block;n#GetBilibiliLiveGiftById#0" />
+            <element signature="n#!!block;n#GetBilibiliLiveCommentByTime#0" />
           </folding>
         </state>
       </provider>
@@ -514,8 +529,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="153">
-            <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <first_editor relative-caret-position="119">
+            <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
           </first_editor>
           <second_editor />
         </state>

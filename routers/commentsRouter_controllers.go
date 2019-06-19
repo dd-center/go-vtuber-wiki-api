@@ -9,6 +9,15 @@ func init() {
 
 	beego.GlobalControllerRouter["go-vtuber-wiki-api/controllers:BilibiliController"] = append(beego.GlobalControllerRouter["go-vtuber-wiki-api/controllers:BilibiliController"],
 		beego.ControllerComments{
+			Method:           "GetBilibiliLiveDanmakuByTime",
+			Router:           `/:id/danmaku`,
+			AllowHTTPMethods: []string{"get"},
+			MethodParams:     param.Make(),
+			Filters:          nil,
+			Params:           nil})
+
+	beego.GlobalControllerRouter["go-vtuber-wiki-api/controllers:BilibiliController"] = append(beego.GlobalControllerRouter["go-vtuber-wiki-api/controllers:BilibiliController"],
+		beego.ControllerComments{
 			Method:           "GetBilibiliLiveCommentById",
 			Router:           `/live/:id/comments`,
 			AllowHTTPMethods: []string{"get"},

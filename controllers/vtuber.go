@@ -9,6 +9,8 @@ type VtuberController struct {
 	beego.Controller
 }
 
+// @Title 获取Vtuber列表
+// @Description 获取可操作的所有Vtuber
 // @router /list [get]
 func (vc *VtuberController) GetAllVtubers() {
 	defer vc.ServeJSON()
@@ -26,6 +28,9 @@ func (vc *VtuberController) GetAllVtubers() {
 	}{true, vtubers}
 }
 
+// @Title 搜索Vtuber
+// @Description 通过关键字搜索Vtuber，可匹配原名或昵称
+// @Param keyword query string true "关键字"
 // @router /search [get]
 func (vc *VtuberController) SearchVtuber() {
 	defer vc.ServeJSON()

@@ -12,7 +12,10 @@ type YoutubeController struct {
 	beego.Controller
 }
 
-// @router /live/:id/history
+// @Title 获取YouTube直播历史
+// @Description 通过VtuberId获取YouTube直播历史
+// @Param id path string true "VtuberId"
+// @router /live/:id/history [get]
 func (yc *YoutubeController) GetYoutubeLiveHistory() {
 	defer yc.ServeJSON()
 	type LiveDetailResult struct {
@@ -53,7 +56,10 @@ func (yc *YoutubeController) GetYoutubeLiveHistory() {
 	}{true, result}
 }
 
-// @router /live/:id/details
+// @Title 获取YouTube直播详情
+// @Description 通过LiveId获取目标直播的详细信息
+// @Param id path string true "Youtube live id"
+// @router /live/:id/details [get]
 func (yc *YoutubeController) GetYoutubeLiveDetail() {
 	defer yc.ServeJSON()
 	type LiveDetailResult struct {
@@ -105,7 +111,10 @@ func (yc *YoutubeController) GetYoutubeLiveDetail() {
 	}{true, result}
 }
 
-// @router /live/:id/details/viewers
+// @Title 获取YouTube直播观众信息
+// @Description 通过LiveId获取目标直播的同接曲线以及初见比例
+// @Param id path string true "Youtube live id"
+// @router /live/:id/details/viewers [get]
 func (yc *YoutubeController) GetYoutubeLiveViewersDetail() {
 	defer yc.ServeJSON()
 	errorTemplate := &struct {
@@ -139,7 +148,7 @@ func (yc *YoutubeController) GetYoutubeLiveViewersDetail() {
 		var publishedViewers []string
 		var unPublishedViewers []string
 		count := 0
-		for i := len(liveHistory) - 1; count < 3; i-- {
+		for i := len(liveHistory) - 1; count < 3 && i >= 0; i-- {
 			if liveHistory[i].BeginTime.Unix() >= liveDetails.BeginTime.Unix() {
 				continue
 			}
@@ -167,7 +176,11 @@ func (yc *YoutubeController) GetYoutubeLiveViewersDetail() {
 	}{true, viewersTrend, firstRate * 100}
 }
 
-// @router /live/:id/chats
+// @Title 获取YouTube直播聊天
+// @Description 通过LiveId获取目标直播的聊天信息
+// @Param id path string true "Youtube live id"
+// @Param offset query int32 true "返回偏移"
+// @router /live/:id/chats [get]
 func (yc *YoutubeController) GetYoutubeLiveChats() {
 	defer yc.ServeJSON()
 	type LiveChatDetail struct {
@@ -208,7 +221,11 @@ func (yc *YoutubeController) GetYoutubeLiveChats() {
 	}{true, offset+200 < len(commonChats), commonChats[offset:int(math.Min(float64(offset+200), float64(len(commonChats)-1)))]}
 }
 
-// @router /live/:id/superchats
+// @Title 获取YouTube直播打赏
+// @Description 通过LiveId获取目标直播的打赏信息
+// @Param id path string true "Youtube live id"
+// @Param offset query int32 true "返回偏移"
+// @router /live/:id/superchats [get]
 func (yc *YoutubeController) GetYoutubeSuperchats() {
 	defer yc.ServeJSON()
 	type SuperchatDetail struct {

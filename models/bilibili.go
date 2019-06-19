@@ -63,3 +63,51 @@ func GetBiliLiveCommentsById(id string) ([]BiliLiveComment, error) {
 	}
 	return result, nil
 }
+
+func GetBiliLiveCommentsByTime(channelId int64, begin int64) ([]BiliLiveComment, error) {
+	collation := Database.C("bili-live-comments")
+	var result []BiliLiveComment
+	err := collation.Find(bson.M{"masterId": channelId, "publishTime": bson.M{"$gte": begin}}).Limit(200).All(&result)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
+}
+
+func FilterBiliChats(comments []BiliLiveComment) []interface{} {
+	var chats []interface{}
+	for _, comment := range comments {
+		if comment.Type == 1 {
+			chats = append(chats, struct {
+				AuthorId    int64
+				AuthorName  string
+				Prefix      string
+				PublishTime int64
+				Content     string
+			}{comment.AuthorId, comment.AuthorName,
+				comment.Prefix, comment.PublishTime,
+				comment.Content})
+		}
+	}
+	return chats
+}
+
+func FilterBiliGifts(comments []BiliLiveComment) []interface{} {
+	var gifts []interface{}
+	for _, comment := range comments {
+		if comment.Type == 0 {
+			gifts = append(gifts, struct {
+				AuthorId    int64
+				AuthorName  string
+				PublishTime int64
+				GiftName    string
+				GiftCount   int
+				CostType    string
+				CostAmount  int
+			}{comment.AuthorId, comment.AuthorName,
+				comment.PublishTime, comment.GiftName,
+				comment.GiftCount, comment.CostType, comment.CostAmount})
+		}
+	}
+	return gifts
+}

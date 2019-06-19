@@ -11,7 +11,10 @@ type BilibiliController struct {
 	beego.Controller
 }
 
-// @router /live/:id/history
+// @Title 获取bilibili直播历史
+// @Description 通过VtuberId获取目标的直播历史
+// @Param id path string true "VtuberId"
+// @router /live/:id/history [get]
 func (bc *BilibiliController) GetBilibiliLiveHistory() {
 	defer bc.ServeJSON()
 	errorTemplate := &struct {
@@ -49,7 +52,11 @@ func (bc *BilibiliController) GetBilibiliLiveHistory() {
 	}{true, liveTime, result}
 }
 
-// @router /live/:id/comments
+// @Title 获取bilibili直播中的聊天
+// @Description 通过LiveId获取该场直播的聊天弹幕
+// @Param id path string true "Bilibili live id"
+// @Param offset query int32 true "返回偏移"
+// @router /live/:id/comments [get]
 func (bc *BilibiliController) GetBilibiliLiveCommentById() {
 	defer bc.ServeJSON()
 	errorTemplate := &struct {
@@ -68,20 +75,7 @@ func (bc *BilibiliController) GetBilibiliLiveCommentById() {
 		bc.Data["json"] = errorTemplate
 		return
 	}
-	var chats []interface{}
-	for _, comment := range comments {
-		if comment.Type == 1 {
-			chats = append(chats, struct {
-				AuthorId    int64
-				AuthorName  string
-				Prefix      string
-				PublishTime int64
-				Content     string
-			}{comment.AuthorId, comment.AuthorName,
-				comment.Prefix, comment.PublishTime,
-				comment.Content})
-		}
-	}
+	chats := models.FilterBiliChats(comments)
 	bc.Data["json"] = &struct {
 		Success      bool
 		HasMoreItems bool
@@ -91,7 +85,11 @@ func (bc *BilibiliController) GetBilibiliLiveCommentById() {
 		chats[offset:int(math.Min(float64(offset+200), float64(len(chats)-1)))]}
 }
 
-// @router /live/:id/gifts
+// @Title 获取bilibili直播中的礼物
+// @Description 通过LiveId获取该场直播的礼物弹幕
+// @Param id path string true "Bilibili live id"
+// @Param offset query int32 true "返回偏移"
+// @router /live/:id/gifts [get]
 func (bc *BilibiliController) GetBilibiliLiveGiftById() {
 	defer bc.ServeJSON()
 	errorTemplate := &struct {
@@ -110,22 +108,7 @@ func (bc *BilibiliController) GetBilibiliLiveGiftById() {
 		bc.Data["json"] = errorTemplate
 		return
 	}
-	var gifts []interface{}
-	for _, comment := range comments {
-		if comment.Type == 0 {
-			gifts = append(gifts, struct {
-				AuthorId    int64
-				AuthorName  string
-				PublishTime int64
-				GiftName    string
-				GiftCount   int
-				CostType    string
-				CostAmount  int
-			}{comment.AuthorId, comment.AuthorName,
-				comment.PublishTime, comment.GiftName,
-				comment.GiftCount, comment.CostType, comment.CostAmount})
-		}
-	}
+	gifts := models.FilterBiliGifts(comments)
 	bc.Data["json"] = &struct {
 		Success      bool
 		HasMoreItems bool
@@ -133,4 +116,36 @@ func (bc *BilibiliController) GetBilibiliLiveGiftById() {
 		Gifts        []interface{}
 	}{true, offset+200 < len(gifts), len(gifts),
 		gifts[offset:int(math.Min(float64(offset+200), float64(len(gifts)-1)))]}
+}
+
+// @Title 获取bilibili弹幕
+// @Description 通过时间获取该Vtuber的200条直播弹幕
+// @Param id path string true "VtuberId"
+// @Param time query int32 true "Unix时间戳"
+// @router /:id/danmaku [get]
+func (bc *BilibiliController) GetBilibiliLiveDanmakuByTime() {
+	defer bc.ServeJSON()
+	errorTemplate := &struct {
+		Success bool
+		Message string
+	}{false, ""}
+	vtuber, vErr := models.GetVtuberById(bc.Ctx.Input.Params()[":id"])
+	time, timeErr := strconv.ParseInt(bc.Input().Get("time"), 0, 64)
+	if vErr != nil || timeErr != nil {
+		errorTemplate.Message = "input error."
+		bc.Data["json"] = errorTemplate
+		return
+	}
+	comments, err := models.GetBiliLiveCommentsByTime(int64(vtuber.BiliUid), time)
+	if err != nil {
+		errorTemplate.Message = err.Error()
+		bc.Data["json"] = errorTemplate
+		return
+	}
+	bc.Data["json"] = &struct {
+		Success  bool
+		Comments []interface{}
+		Gifts    []interface{}
+	}{true, models.FilterBiliChats(comments), models.FilterBiliGifts(comments)}
+
 }

@@ -29,7 +29,7 @@ func (yc *YoutubeController) GetYoutubeLiveHistory() {
 		Message string
 	}{false, ""}
 	vtuberId := yc.Ctx.Input.Params()[":id"]
-	vtuberInfo, err := models.GetVtuberById(vtuberId)
+	vtuberInfo, err := models.GetVtuberByVdbId(vtuberId)
 	if err != nil || vtuberInfo.YoutubeChannelId == "" {
 		errorTemplate.Message = "Vtuber not found."
 		yc.Data["json"] = errorTemplate

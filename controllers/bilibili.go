@@ -21,7 +21,7 @@ func (bc *BilibiliController) GetBilibiliLiveHistory() {
 		Success bool
 		Message string
 	}{false, ""}
-	vtuber, vErr := models.GetVtuberById(bc.Ctx.Input.Params()[":id"])
+	vtuber, vErr := models.GetVtuberByVdbId(bc.Ctx.Input.Params()[":id"])
 	if vErr != nil {
 		errorTemplate.Message = "vtuber id error."
 		bc.Data["json"] = errorTemplate
@@ -129,7 +129,7 @@ func (bc *BilibiliController) GetBilibiliLiveDanmakuByTime() {
 		Success bool
 		Message string
 	}{false, ""}
-	vtuber, vErr := models.GetVtuberById(bc.Ctx.Input.Params()[":id"])
+	vtuber, vErr := models.GetVtuberByVdbId(bc.Ctx.Input.Params()[":id"])
 	time, timeErr := strconv.ParseInt(bc.Input().Get("time"), 0, 64)
 	if vErr != nil || timeErr != nil {
 		errorTemplate.Message = "input error."

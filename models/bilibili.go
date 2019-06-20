@@ -84,9 +84,10 @@ func FilterBiliChats(comments []BiliLiveComment) []interface{} {
 				Prefix      string
 				PublishTime int64
 				Content     string
+				Popularity  int
 			}{comment.AuthorId, comment.AuthorName,
 				comment.Prefix, comment.PublishTime,
-				comment.Content})
+				comment.Content, comment.Popularity})
 		}
 	}
 	return chats
@@ -104,9 +105,10 @@ func FilterBiliGifts(comments []BiliLiveComment) []interface{} {
 				GiftCount   int
 				CostType    string
 				CostAmount  int
+				Popularity  int
 			}{comment.AuthorId, comment.AuthorName,
 				comment.PublishTime, comment.GiftName,
-				comment.GiftCount, comment.CostType, comment.CostAmount})
+				comment.GiftCount, comment.CostType, comment.CostAmount, comment.Popularity})
 		}
 	}
 	return gifts

@@ -8,14 +8,15 @@ import (
 )
 
 type VtuberEntity struct {
-	Id               bson.ObjectId "bson:\"_id\",json:\"id\""
-	OriginalName     string        "bson:\"originalName\""
-	ChineseName      string        "bson:\"chineseName\""
-	YoutubeChannelId string        "bson:\"youtubeChannelId\""
-	TwitterProfileId string        "bson:\"twitterProfileId\""
-	BiliUid          uint64        "bson:\"bilibiliUid\""
-	GroupName        string        "bson:\"groupName\""
-	NickNames        []string      "bson:\"nickNameList\""
+	Id                 bson.ObjectId "bson:\"_id\",json:\"id\""
+	OriginalName       string        "bson:\"originalName\""
+	ChineseName        string        "bson:\"chineseName\""
+	YoutubeChannelId   string        "bson:\"youtubeChannelId\""
+	TwitterProfileId   string        "bson:\"twitterProfileId\""
+	VtuberDatabaseUuid string        "bson:\"vdbUuid\""
+	BiliUid            uint64        "bson:\"bilibiliUid\""
+	GroupName          string        "bson:\"groupName\""
+	NickNames          []string      "bson:\"nickNameList\""
 }
 
 func GetAllVtubers() ([]VtuberEntity, error) {
@@ -29,10 +30,23 @@ func GetAllVtubers() ([]VtuberEntity, error) {
 	return result, nil
 }
 
+/*
 func GetVtuberById(id string) (*VtuberEntity, error) {
 	collation := Database.C("vtubers")
 	var result VtuberEntity
 	err := collation.Find(bson.M{"_id": bson.ObjectIdHex(id)}).One(&result)
+	if err != nil {
+		fmt.Println("cannot find  vtubers " + id + " :" + err.Error())
+		return nil, err
+	}
+	return &result, nil
+}
+*/
+
+func GetVtuberByVdbId(id string) (*VtuberEntity, error) {
+	collation := Database.C("vtubers")
+	var result VtuberEntity
+	err := collation.Find(bson.M{"vdbUuid": id}).One(&result)
 	if err != nil {
 		fmt.Println("cannot find  vtubers " + id + " :" + err.Error())
 		return nil, err
